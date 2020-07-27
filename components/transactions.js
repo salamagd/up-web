@@ -32,34 +32,32 @@ export default function Transactions(props) {
   return (
     <div className={styles.outer}>
       <div className={styles.inner}>
-        {transactionsByDate ? (
-          transactionsByDate.length > 0 ? (
-            transactionsByDate.map(([dateString, records], index) => (
-              <React.Fragment key={dateString}>
-                <div
-                  className={
-                    index === 0
-                      ? `${styles.date} ${styles.dateFirst}`
-                      : styles.date
-                  }
-                >
-                  {dateString}
-                </div>
-                {records.map((record, index) => (
-                  <Transaction
-                    key={record.transaction.id}
-                    transaction={record.transaction}
-                    timeString={record.timeString}
-                    last={index + 1 === records.length}
-                  />
-                ))}
-              </React.Fragment>
-            ))
-          ) : (
-            <div className={styles.empty}>nothing to see here! 💁</div>
-          )
+        {transactionsByDate && transactionsByDate.length > 0 ? (
+          transactionsByDate.map(([dateString, records], index) => (
+            <React.Fragment key={dateString}>
+              <div
+                className={
+                  index === 0
+                    ? `${styles.date} ${styles.dateFirst}`
+                    : styles.date
+                }
+              >
+                {dateString}
+              </div>
+              {records.map((record, index) => (
+                <Transaction
+                  key={record.transaction.id}
+                  transaction={record.transaction}
+                  timeString={record.timeString}
+                  last={index + 1 === records.length}
+                />
+              ))}
+            </React.Fragment>
+          ))
         ) : (
-          <div className={styles.empty}>loading... ⏳</div>
+          <div className={styles.empty}>
+            {transactionsByDate ? 'nothing to see here! 💁' : 'loading... ⏳'}
+          </div>
         )}
       </div>
     </div>
