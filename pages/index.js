@@ -16,7 +16,6 @@ export async function getServerSideProps() {
         }))
     )
   );
-  console.log(accountsWithTransactions);
   return { props: { accountsWithTransactions } };
 }
 
