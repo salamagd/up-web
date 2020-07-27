@@ -1,6 +1,8 @@
 # up-web
 
-A demo app which can be used to view your Up Banking accounts and transactions in a web browser. Relies upon the [Up API](https://developer.up.com.au/).
+A demo app which can be used to view your Up Banking accounts and transactions in a web browser. Relies upon the [Up Banking API](https://developer.up.com.au/).
+
+![up-web example screenshot](public/demo.png)
 
 ## Getting Started
 
