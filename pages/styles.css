@@ -1,0 +1,10 @@
+@font-face {
+  font-family: Circular;
+  src: url(/fonts/CircularStd-Book.ttf);
+}
+
+body {
+  font-family: Circular, Roboto, Helvetica, Arial, sans-serif;
+  background-color: #1a1a22;
+  color: #ffffff;
+}

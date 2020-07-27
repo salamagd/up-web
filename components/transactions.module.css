@@ -1,0 +1,35 @@
+.outer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inner {
+  background-color: #ffffff;
+  color: #000000;
+  border-radius: 2px;
+  width: 40em;
+}
+
+.transaction {
+  display: flex;
+  padding: 1em;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.details {
+  flex-grow: 1;
+}
+
+.message {
+  font-size: 0.8em;
+  color: #888888;
+}
+
+.amountPositive {
+  color: #46af61;
+}
+
+.empty {
+  color: #888888;
+}

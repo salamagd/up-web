@@ -1,0 +1,16 @@
+.outer {
+  margin-top: 2em;
+}
+
+.balance {
+  text-align: center;
+  color: #ff7a64;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.title {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 1em;
+}
