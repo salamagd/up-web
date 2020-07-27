@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 
-import { RequestHeadersContext } from '../pages/index';
+import { RequestHeadersContext } from '../pages';
 import Account from './account';
 
 const ACCOUNTS_URL = 'https://api.up.com.au/api/v1/accounts';
@@ -19,7 +19,7 @@ export default function Accounts(props) {
   }, []);
 
   return (
-    <React.Fragment>
+    <>
       {accounts ? (
         accounts.map((account) => (
           <Account key={account.id} account={account} />
@@ -27,6 +27,6 @@ export default function Accounts(props) {
       ) : (
         <div>⏳</div>
       )}
-    </React.Fragment>
+    </>
   );
 }

@@ -2,7 +2,7 @@ import moment from 'moment';
 import { groupBy } from 'lodash';
 import { useContext, useEffect, useState } from 'react';
 
-import { RequestHeadersContext } from '../pages/index';
+import { RequestHeadersContext } from '../pages';
 import Transaction from './transaction';
 import styles from './transactions.module.css';
 
