@@ -7,7 +7,7 @@ const ACCOUNTS_URL = 'https://api.up.com.au/api/v1/accounts';
 
 export default function Accounts(props) {
   const headers = useContext(RequestHeadersContext);
-  const [accounts, setAccounts] = useState([]);
+  const [accounts, setAccounts] = useState();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -20,9 +20,13 @@ export default function Accounts(props) {
 
   return (
     <React.Fragment>
-      {accounts.map((account) => (
-        <Account key={account.id} account={account} />
-      ))}
+      {accounts ? (
+        accounts.map((account) => (
+          <Account key={account.id} account={account} />
+        ))
+      ) : (
+        <div>⏳</div>
+      )}
     </React.Fragment>
   );
 }
