@@ -6,8 +6,8 @@ import styles from './transactions.module.css';
 export default function Transactions(props) {
   const transactionsByDate = props.transactions.reduce((map, transaction) => {
     const createdAt = moment(transaction.attributes.createdAt);
-    const dateString = createdAt.format('ddd, D MMMM');
     transaction.timeString = createdAt.format('h:mma');
+    const dateString = createdAt.format('ddd, D MMMM yyyy');
     if (!map[dateString]) {
       map[dateString] = [transaction];
     } else {

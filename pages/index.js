@@ -1,3 +1,5 @@
+import Head from 'next/head';
+
 import Account from '../components/account';
 
 export async function getServerSideProps() {
@@ -22,6 +24,9 @@ export async function getServerSideProps() {
 export default function Home(props) {
   return (
     <div>
+      <Head>
+        <title>up-web</title>
+      </Head>
       {props.accountsWithTransactions.map((record) => (
         <Account account={record.account} transactions={record.transactions} />
       ))}
