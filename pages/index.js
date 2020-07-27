@@ -6,17 +6,15 @@ export const RequestHeadersContext = React.createContext();
 
 export default function Home(props) {
   return (
-    <div>
+    <RequestHeadersContext.Provider
+      value={{
+        Authorization: `Bearer ${process.env.NEXT_PUBLIC_UP_API_TOKEN}`,
+      }}
+    >
       <Head>
         <title>up-web</title>
       </Head>
-      <RequestHeadersContext.Provider
-        value={{
-          Authorization: `Bearer ${process.env.NEXT_PUBLIC_UP_API_TOKEN}`,
-        }}
-      >
-        <Accounts />
-      </RequestHeadersContext.Provider>
-    </div>
+      <Accounts />
+    </RequestHeadersContext.Provider>
   );
 }
