@@ -1,18 +1,16 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
+import { RequestHeadersContext } from '../pages/index';
 import Transactions from './transactions';
 import styles from './account.module.css';
 
 export default function Account(props) {
+  const headers = useContext(RequestHeadersContext);
   const [transactions, setTransactions] = useState();
 
   useEffect(() => {
     const fetchData = async () => {
-      const options = {
-        headers: {
-          Authorization: `Bearer ${process.env.NEXT_PUBLIC_UP_API_TOKEN}`,
-        },
-      };
+      const options = {headers};
       const res = await fetch(
         props.account.relationships.transactions.links.related,
         options
