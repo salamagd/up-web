@@ -20,11 +20,16 @@ export default function Transactions(props) {
     <div className={styles.outer}>
       <div className={styles.inner}>
         {Object.entries(transactionsByDate).map(
-          ([dateString, transactions]) => (
+          ([dateString, transactions], index) => (
             <>
-              <div className={styles.date}>{dateString}</div>
-              {transactions.map((transaction) => (
-                <Transaction transaction={transaction} />
+              <div className={index === 0 ? styles.dateFirst : styles.date}>
+                {dateString}
+              </div>
+              {transactions.map((transaction, index) => (
+                <Transaction
+                  transaction={transaction}
+                  last={index + 1 === transactions.length}
+                />
               ))}
             </>
           )
