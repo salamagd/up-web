@@ -17,7 +17,7 @@ export default function Transaction(props) {
           {props.transaction.attributes.description}
         </div>
         <div className={styles.message}>
-          {props.transaction.timeString}
+          {props.timeString}
           {props.transaction.attributes.message
             ? `, ${props.transaction.attributes.message}`
             : null}

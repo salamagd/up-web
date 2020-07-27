@@ -1,35 +1,34 @@
 import moment from 'moment';
+import { groupBy } from 'lodash';
 
 import Transaction from './transaction';
 import styles from './transactions.module.css';
 
 export default function Transactions(props) {
-  const transactionsByDate = props.transactions.reduce((map, transaction) => {
+  const transactionsWithDates = props.transactions.map((transaction) => {
     const createdAt = moment(transaction.attributes.createdAt);
-    transaction.timeString = createdAt.format('h:mma');
+    const timeString = createdAt.format('h:mma');
     const dateString = createdAt.format('ddd, D MMMM yyyy');
-    if (!map[dateString]) {
-      map[dateString] = [transaction];
-    } else {
-      map[dateString].push(transaction);
-    }
-    return map;
-  }, Object.create(null));
+    return { transaction, createdAt, timeString, dateString };
+  });
+
+  const transactionsByDate = groupBy(transactionsWithDates, 'dateString');
 
   return (
     <div className={styles.outer}>
       <div className={styles.inner}>
         {Object.entries(transactionsByDate).map(
-          ([dateString, transactions], index) => (
+          ([dateString, records], index) => (
             <React.Fragment key={dateString}>
               <div className={index === 0 ? styles.dateFirst : styles.date}>
                 {dateString}
               </div>
-              {transactions.map((transaction, index) => (
+              {records.map((record, index) => (
                 <Transaction
-                  key={transaction.id}
-                  transaction={transaction}
-                  last={index + 1 === transactions.length}
+                  key={record.transaction.id}
+                  transaction={record.transaction}
+                  timeString={record.timeString}
+                  last={index + 1 === records.length}
                 />
               ))}
             </React.Fragment>
