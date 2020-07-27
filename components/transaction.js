@@ -7,7 +7,11 @@ export default function Transaction(props) {
   });
 
   return (
-    <div className={props.last ? styles.transaction : styles.transactionBottomBorder}>
+    <div
+      className={
+        props.last ? styles.transaction : styles.transactionBottomBorder
+      }
+    >
       <div className={styles.details}>
         <div className={styles.description}>
           {props.transaction.attributes.description}

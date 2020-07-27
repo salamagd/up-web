@@ -21,17 +21,18 @@ export default function Transactions(props) {
       <div className={styles.inner}>
         {Object.entries(transactionsByDate).map(
           ([dateString, transactions], index) => (
-            <>
+            <React.Fragment key={dateString}>
               <div className={index === 0 ? styles.dateFirst : styles.date}>
                 {dateString}
               </div>
               {transactions.map((transaction, index) => (
                 <Transaction
+                  key={transaction.id}
                   transaction={transaction}
                   last={index + 1 === transactions.length}
                 />
               ))}
-            </>
+            </React.Fragment>
           )
         )}
         {props.transactions.length === 0 ? (
