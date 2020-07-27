@@ -7,17 +7,25 @@ export default function Account(props) {
     currency: 'AUD',
   });
 
+  const {
+    attributes: {
+      displayName,
+      balance: { valueInBaseUnits },
+    },
+    relationships: {
+      transactions: {
+        links: { related: transactionsURL },
+      },
+    },
+  } = props.account;
+
   return (
     <div className={styles.outer}>
       <div className={styles.balance}>
-        {formatter.format(
-          props.account.attributes.balance.valueInBaseUnits / 100
-        )}
+        {formatter.format(valueInBaseUnits / 100)}
       </div>
-      <div className={styles.title}>{props.account.attributes.displayName}</div>
-      <Transactions
-        url={props.account.relationships.transactions.links.related}
-      />
+      <div className={styles.title}>{displayName}</div>
+      <Transactions url={transactionsURL} />
     </div>
   );
 }

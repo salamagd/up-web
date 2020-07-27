@@ -19,10 +19,6 @@
 }
 
 .dateFirst {
-  background-color: #f6f6f6;
-  font-size: 0.8em;
-  color: #888888;
-  padding: 0.5em 1.25em;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
 }

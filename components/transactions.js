@@ -36,7 +36,13 @@ export default function Transactions(props) {
           transactionsByDate.length > 0 ? (
             transactionsByDate.map(([dateString, records], index) => (
               <React.Fragment key={dateString}>
-                <div className={index === 0 ? styles.dateFirst : styles.date}>
+                <div
+                  className={
+                    index === 0
+                      ? `${styles.date} ${styles.dateFirst}`
+                      : styles.date
+                  }
+                >
                   {dateString}
                 </div>
                 {records.map((record, index) => (
