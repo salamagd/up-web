@@ -1,0 +1,19 @@
+.transaction {
+  display: flex;
+  align-items: center;
+  padding: 1em;
+  border-bottom: 1px solid #f6f6f6;
+}
+
+.details {
+  flex-grow: 1;
+}
+
+.message {
+  font-size: 0.8em;
+  color: #888888;
+}
+
+.amountPositive {
+  color: #46af61;
+}

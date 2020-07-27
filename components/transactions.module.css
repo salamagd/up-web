@@ -11,25 +11,14 @@
   width: 40em;
 }
 
-.transaction {
-  display: flex;
-  padding: 1em;
-  border-bottom: 1px solid #eeeeee;
-}
-
-.details {
-  flex-grow: 1;
-}
-
-.message {
+.date {
+  background-color: #f6f6f6;
   font-size: 0.8em;
   color: #888888;
-}
-
-.amountPositive {
-  color: #46af61;
+  padding: 0.5em 1.25em;
 }
 
 .empty {
+  padding: 1em;
   color: #888888;
 }
